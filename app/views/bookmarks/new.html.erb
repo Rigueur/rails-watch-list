@@ -1,0 +1,11 @@
+<%= render "navbar", list: @list %>
+<div class="container">
+  <h1>New bookmark</h1>
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :list %>
+    <%= f.association :movie %>
+    <%= f.submit "Submit bookmark", class: "btn btn-primary" %>
+  <% end %>
+  <p><%= link_to 'Back', list_path(@list), class: "btn btn-primary mt-3"%></p>
+</div>

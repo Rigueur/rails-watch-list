@@ -1,0 +1,17 @@
+<%= render "navbar", list: @list %>
+<div class="container mt-2">
+  <h1>All our list (<%=@lists.length%>)</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @lists.each do |list| %>
+      <div class="col">
+        <div class="card shadow-sm">
+          <a href="<%=list_path(list)%>" class="text-decoration-none">
+            <div class="card-img-top d-flex align-items-center justify-content-center" style="width: 100%; height: 250px; background-image: url(<%=list.image_url%>); background-size: cover; background-position: center">
+              <h2 class="fw-bold" style="color: white"><%=list.name%></h2>
+            </div>
+          </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

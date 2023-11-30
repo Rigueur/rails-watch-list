@@ -1,0 +1,28 @@
+<%= render "navbar", list: @list %>
+<div class="d-flex align-items-center justify-content-center" style="width: 100%; height: 350px; background-image: url(<%=@list.image_url%>); background-size: cover; background-position: center">
+  <h2 class="fw-bold" style="color: white"><%=@list.name%></h2>
+</div>
+  <div class="container m-4 d-flex justify-content-end">
+    <a href="<%=new_list_bookmark_path(@list)%>" class="btn btn-success">Add a movie</a>
+  </div>
+<div class="container w-90">
+  <%# style="margin-top: -100px" %>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @list.bookmarks.each do |bookmark| %>
+    <% @movie = Movie.find(bookmark.movie_id)%>
+      <div class="col">
+        <div class="card shadow-sm">
+            <div class="card-img-top" style="width: 100%; height: 200px; background-image: url(<%=@movie.poster_url%>); background-size: cover; background-position: center"></div>
+            <div class="card-body">
+              <h5 class="card-title"><%= @movie.title %> - <%= @movie.rating %> <i class="fa-solid fa-star" style="color: #edd400;"></i></h5>
+              <p class="card-text"><%= @movie.overview %></p>
+              <div class="d-flex justify-content-between align-items-center border-top pt-2">
+                <p class="mb-0"><i class="fa-solid fa-quote-right"></i> <%= bookmark.comment %></p>
+                <a href="<%=bookmark_path(bookmark.id)%>" data-turbo-method="delete" data-turbo-confirm="Are you sure?" class="link-danger">delete</a>
+              </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

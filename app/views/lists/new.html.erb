@@ -1,0 +1,6 @@
+<%= render "navbar", list: @list %>
+<div class="container">
+  <h1>New List</h1>
+  <%= render "form", list: @list %>
+  <p><%= link_to 'Back', lists_path, class: "btn btn-primary mt-3"%></p>
+</div>

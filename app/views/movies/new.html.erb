@@ -1,0 +1,22 @@
+<%= render "navbar", movie: @movie %>
+<div class="container">
+  <div class="row justify-content-center mb-5">
+    <div class="col-6">
+      <h1 class="my-3">Movie Search</h1>
+      <form id="search-movies">
+        <div class="form-group">
+          <label for="movie-name" class="form-label">Enter a movie name</label>
+          <div class="d-flex">
+            <input type="text" id="movie-name" class="form-control" placeholder="The Shawshank Redemption, The Godfather...">
+            <input type="submit" value="Search" class="btn btn-primary ms-2">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row" id="movie-cards">
+    <!-- TODO: Display movie posters here -->
+  </div>
+</div>
+
+<script src="lib/index.js"></script>
